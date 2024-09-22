@@ -1,5 +1,5 @@
 import './index.css'
-import React, {createContext, useState} from "react";
+import  {createContext, useState} from "react";
 import {ThemeProvider, createTheme} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Home from "./pages/dashboard/Home.jsx";
@@ -42,7 +42,9 @@ function App() {
     const router = createBrowserRouter([
         {
             path: '/',
-            element: <AuthMiddleware><RootLayout/></AuthMiddleware>,
+            element: <AuthMiddleware>
+                <RootLayout/>
+                </AuthMiddleware>,
             errorElement: <Notfound/>,
             children: [
                 {

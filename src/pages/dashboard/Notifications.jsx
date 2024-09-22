@@ -49,7 +49,7 @@ function Notifications(props) {
                <Stack spacing={2} sx={{mt:5}}>
                    {alerts.map((alert,index)=>{
                        return(
-                           <Collapse in={alert.open} key={index}>
+                           <Collapse  in={alert.open} key={index}>
                                <Alert icon={false} severity={alert.severity} onClose={()=> setAlerts([...alerts,alert.open = false])}>This is a success Alert.</Alert>
                            </Collapse>
                        )

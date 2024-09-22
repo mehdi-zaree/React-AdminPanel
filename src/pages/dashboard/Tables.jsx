@@ -1,18 +1,9 @@
 import React from 'react';
 import {
-    Avatar, AvatarGroup,
     Box,
-    Card, LinearProgress,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow, Tooltip,
+    Card,
     Typography
 } from "@mui/material";
-import projectsTableData from "../../data/projects-table-data.js";
-import {MoreVert} from "@mui/icons-material";
 import ProjectsTable from "../../components/tables/Projects-table.jsx";
 import authorsTableData from "../../data/authors-table-data.js";
 import ProjectsTableData from "../../data/projects-table-data.js";

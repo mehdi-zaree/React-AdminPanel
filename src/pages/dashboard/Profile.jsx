@@ -55,22 +55,23 @@ function Profile() {
                             </Typography>
                             {platformSettingsData.map((list,index)=>{
                                 return(
-                                    <List>
-                                        <Typography sx={{textTransform:'uppercase',fontSize:'12px',fontWeight:'bold',color:'#7499ba'}}>
-                                            {list.title}
-                                        </Typography>
-                                        {list.options.map((listItem,index)=>{
-                                            return(
-                                                <ListItem>
-                                                    <Switch checked={listItem.checked}/>
-                                                    <Typography sx={{fontSize:'14px',color:'#7499ba'}}>
-                                                        {listItem.label}
-                                                    </Typography>
-                                                </ListItem>
-                                            )
-                                        })}
+                                    <>
+                                        <List key={index}>
+                                            <Typography sx={{textTransform:'uppercase',fontSize:'12px',fontWeight:'bold',color:'#7499ba'}}>
+                                                {list.title}
+                                            </Typography>
+                                            {list.options.map((listItem,index)=>{
+                                                return(
+                                                    <ListItem key={index}>
+                                                        <Switch checked={listItem.checked}/>
+                                                        <Typography sx={{fontSize:'14px',color:'#7499ba'}}>
+                                                            {listItem.label}
+                                                        </Typography>
+                                                    </ListItem>
+                                                )
+                                            })}
 
-                                    </List>
+                                        </List></>
                                 )
                             })}
                         </Box>
@@ -134,6 +135,7 @@ function Profile() {
                                             imageSrc={message.img}
                                             messageSender={message.name}
                                             messageContent={message.message}
+                                            key={index}
                                         />
                                     )
                                 })}

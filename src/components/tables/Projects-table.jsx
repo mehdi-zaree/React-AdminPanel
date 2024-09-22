@@ -1,8 +1,7 @@
-import React from 'react';
 import {
     Avatar, AvatarGroup,
     Box,
-    Button, Card, IconButton, LinearProgress,
+    Button, IconButton, LinearProgress,
     Table,
     TableBody,
     TableCell,
@@ -11,11 +10,8 @@ import {
     TableRow, Tooltip,
     Typography
 } from "@mui/material";
-import {CheckCircleRounded, MoreVert} from "@mui/icons-material";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import projectsTableData from "../../data/projects-table-data.js";
-import authorsTableData from "../../data/authors-table-data.js";
+import { MoreVert} from "@mui/icons-material";
+
 
 function ProjectsTable({data,moreIcon,isEdit}) {
 
@@ -34,7 +30,7 @@ function ProjectsTable({data,moreIcon,isEdit}) {
                     <TableBody>
                         {data.map((item, index) => {
                             return (
-                                <TableRow>
+                                <TableRow key={index}>
                                     <TableCell >
                                         <Box sx={{display:'flex',flexDirection:{xs:"column",sm:'row'},alignItems:{xs:'center'},gap:1,}}>
                                             <Avatar src={item.img} sx={{height:'32px',width:'32px'}}/>
@@ -44,9 +40,9 @@ function ProjectsTable({data,moreIcon,isEdit}) {
                                     <TableCell  size='small' >
                                         {item.members?
                                             <AvatarGroup max={4}  sx={{display:'flex',justifyContent:"flex-end",}}>
-                                            {item.members.map((member)=>{
+                                            {item.members.map((member,index)=>{
                                                 return(
-                                                    <Tooltip title={member.name} placement="top">
+                                                    <Tooltip key={index} title={member.name} placement="top">
                                                         <Avatar sx={{width:'22px',height:'22px'}} src={member.img} alt={member.name}/>
                                                     </Tooltip>
                                                 )

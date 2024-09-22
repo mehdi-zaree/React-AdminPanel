@@ -43,10 +43,10 @@ function Home() {
                 })}
             </Grid>
             <Grid container spacing={2} sx={{justifyContent:'center'}} columns={{xs:3,sm:9,md:12}}>
-                {statisticsChartsData.map((props)=>{
+                {statisticsChartsData.map((props,index)=>{
                     return(
                         <Grid Item size={{xs:4}}>
-                            <StatisticChart {...props}/>
+                            <StatisticChart {...props} key={index}/>
                         </Grid>
                     )
                 })}
@@ -98,7 +98,7 @@ function Home() {
                                 </Menu>
                             </Box>
                         </Box>
-                        <ProjectsTable data={projectsTableData}/>
+                        <ProjectsTable data={projectsTableData} isEdit={false} moreIcon={false}/>
                     </Card>
                 </Grid>
                 <Grid Item size={{xs:12,sm:4}} >
@@ -116,17 +116,18 @@ function Home() {
                         <CardContent>
                             {ordersOverviewData.map((item,index)=>{
                                 return(
-                                    <Box sx={{display:'flex', alignItems:'flex-start',gap:3,marginY:'16px'}}>
-                                       <item.icon style={{width:'24px',color:'#7499ba'}}/>
-                                        <Box>
-                                        <Typography sx={{fontSize:'14px',color:'inherit'}}>
-                                                {item.title}
-                                            </Typography>
-                                            <Typography sx={{fontSize:'12px',color:'#7499ba'}}>
-                                                {item.description}
-                                            </Typography>
-                                        </Box>
-                                    </Box>
+                                    <>
+                                        <Box key={index} sx={{display:'flex', alignItems:'flex-start',gap:3,marginY:'16px'}}>
+                                            <item.icon style={{width:'24px',color:'#7499ba'}}/>
+                                            <Box>
+                                                <Typography sx={{fontSize:'14px',color:'inherit'}}>
+                                                    {item.title}
+                                                </Typography>
+                                                <Typography sx={{fontSize:'12px',color:'#7499ba'}}>
+                                                    {item.description}
+                                                </Typography>
+                                            </Box>
+                                        </Box></>
                                 )
                             })}
                         </CardContent>

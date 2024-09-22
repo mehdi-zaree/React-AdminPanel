@@ -1,9 +1,9 @@
-import axios from "axios";
-import {useMutation} from "@tanstack/react-query";
 
+import {useMutation} from "@tanstack/react-query";
+import instanceAxios from "../axiosinstance.js";
 const loginApi = async (data) => {
     try {
-        const response = await axios.post("http://localhost:3000/api/login", data)
+        const response = await instanceAxios.post("/login", data)
         return response?.data
     } catch (error) {
         console.log(error)
