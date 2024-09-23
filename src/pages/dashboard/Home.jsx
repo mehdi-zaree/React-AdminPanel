@@ -28,7 +28,7 @@ function Home() {
             <Grid sx={{my:8}} container spacing={{ xs: 2, md: 3 }} columns={{xs:4,sm:8,md:24}}>
                 {StatisticsCardsData.map((item,index)=>{
                     return(
-                        <Grid Item size={{xs: 4,md: 6}}>
+                        <Grid  size={{xs: 4,md: 6}} key={index}>
                                 <StatisticsCard
                                     key={index}
                                     Icon={<item.icon style={{color:'white',width:'30px',height:'30px'}}/>}
@@ -45,21 +45,21 @@ function Home() {
             <Grid container spacing={2} sx={{justifyContent:'center'}} columns={{xs:3,sm:9,md:12}}>
                 {statisticsChartsData.map((props,index)=>{
                     return(
-                        <Grid Item size={{xs:4}}>
+                        <Grid  size={{xs:4}} key={index}>
                             <StatisticChart {...props} key={index}/>
                         </Grid>
                     )
                 })}
             </Grid>
             <Grid container spacing={2} sx={{justifyContent:'center',my:4}} columns={{xs:3,md:12}} >
-                <Grid Item size={{xs:12,sm:8}}>
+                <Grid  size={{xs:12,sm:8}}>
                     <Card sx={{borderRadius:'12px',display:'flex',flexDirection:'column'}}>
                         <Box sx={{width:'100%',display:'flex',justifyContent:'space-between',paddingX:'32px',paddingY:'32px'}}>
                             <Box>
                                 <Typography level='h3' sx={{fontWeight: 'bold'}}>
                                     Projects
                                 </Typography>
-                                <Typography sx={{
+                                <Box sx={{
                                     display: 'flex',
                                     gap: 1,
                                     color: 'gray',
@@ -70,8 +70,10 @@ function Home() {
                                     <Typography sx={{fontWeight: "bold", fontSize: '14px'}}>
                                         30 done
                                     </Typography>
-                                    this month
-                                </Typography>
+                                    <Typography>
+                                        this month
+                                    </Typography>
+                                </Box>
                             </Box>
                             <Box>
                                 <Button
@@ -89,8 +91,6 @@ function Home() {
                                     anchorEl={anchorEl}
                                     open={open}
                                     onClose={handleClose}
-
-
                                 >
                                     <MenuItem onClick={handleClose}>setting</MenuItem>
                                     <MenuItem onClick={handleClose}>more settings</MenuItem>
@@ -101,22 +101,23 @@ function Home() {
                         <ProjectsTable data={projectsTableData} isEdit={false} moreIcon={false}/>
                     </Card>
                 </Grid>
-                <Grid Item size={{xs:12,sm:4}} >
+                <Grid  size={{xs:12,sm:4}} >
                     <Card sx={{borderRadius:'8px',height:'100%'}} >
                         <Box sx={{display:'flex',flexDirection:'column', gap:1,padding:'16px',}}>
                             <Typography level={'h4'} sx={{fontWeight:'bold'}}>
                                 Orders Overview
                             </Typography>
-                            <Typography sx={{color:'#7499ba',display:'flex',gap:1}}>
+                            <Box sx={{color:'#7499ba',display:'flex',gap:1}}>
                                 <ArrowUpwardRounded sx={{color:'green'}}/>
                                 <Typography sx={{fontWeight:'bold',color:'inherit'}}>24%</Typography>
-                                this month
-                            </Typography>
+                                <Typography>
+                                    this month
+                                </Typography>
+                            </Box>
                         </Box>
                         <CardContent>
                             {ordersOverviewData.map((item,index)=>{
                                 return(
-                                    <>
                                         <Box key={index} sx={{display:'flex', alignItems:'flex-start',gap:3,marginY:'16px'}}>
                                             <item.icon style={{width:'24px',color:'#7499ba'}}/>
                                             <Box>
@@ -127,7 +128,7 @@ function Home() {
                                                     {item.description}
                                                 </Typography>
                                             </Box>
-                                        </Box></>
+                                        </Box>
                                 )
                             })}
                         </CardContent>

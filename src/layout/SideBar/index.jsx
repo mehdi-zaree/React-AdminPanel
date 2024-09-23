@@ -7,21 +7,19 @@ import {
     ListItemText,
     Typography
 } from "@mui/material";
-import ListSubheader from '@mui/material/ListSubheader';
 import {Context} from "../../App.jsx";
 import {
     AccountCircle,
-    AppRegistrationRounded, CloseRounded,
+    CloseRounded,
     ErrorRounded,
     HomeRounded,
-    LoginRounded,
     TableChart
 } from "@mui/icons-material";
 import {NavLink, useLocation} from "react-router-dom";
 
 
 function Index() {
-    const [theme, isOpen, setIsOpen, toggleDarkTheme] = useContext(Context);
+    const [theme, isOpen, setIsOpen] = useContext(Context);
     const location = useLocation();
     const pathName = location.pathname;
 
@@ -115,37 +113,7 @@ function Index() {
                             fontWeight: 'bold'
                         }}/>
                     </ListItemButton>
-                    <ListSubheader sx={{ textTransform: 'uppercase', fontWeight: 'bolder' }}>
-                        auth pages
-                    </ListSubheader>
-                    <ListItemButton component={NavLink} to='/auth/signin' sx={{
-                        borderRadius: '8px',
-                        background: pathName === '/auth/signin' ? 'rgb(32,32,32)' : '',
-                        color: pathName === '/auth/signin' ? 'white' : '#607d8d',
-                        pointerEvents: pathName === '/auth/signin' ? 'none' : 'auto',
-                    }}>
-                        <ListItemIcon sx={{color: pathName === '/auth/signin' ? 'snow' : '#607d8d'}}>
-                            <LoginRounded/>
-                        </ListItemIcon>
-                        <ListItemText primary={'Sign In'} sx={{
-                            fontWeight: 'bold'
-                        }}/>
-                    </ListItemButton>
-                    <ListItemButton component={NavLink} to='/auth/signup' sx={{
-                        borderRadius: '8px',
-                        background: pathName === '/auth/signup' ? 'rgb(32,32,32)' : '',
-                        color: pathName === '/auth/signup' ? 'white' : '#607d8d',
-                        pointerEvents: pathName === '/auth/signup' ? 'none' : 'auto',
-                    }}>
-                        <ListItemIcon sx={{color: pathName === '/auth/signup' ? 'snow' : '#607d8d'}}>
-                            <AppRegistrationRounded/>
-                        </ListItemIcon>
-                        <ListItemText primary={'Sign Up'} sx={{
-                            fontWeight: 'bold'
-                        }}/>
-                    </ListItemButton>
                 </List>
-
             </Card>
         </>
     );

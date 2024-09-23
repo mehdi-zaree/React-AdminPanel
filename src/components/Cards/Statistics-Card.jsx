@@ -1,4 +1,4 @@
-import {Box, Card, CardContent, CardHeader, Divider, Typography} from "@mui/material";
+import {Box, Card, CardContent, Divider, Typography} from "@mui/material";
 
 
 // eslint-disable-next-line react/prop-types
@@ -11,7 +11,7 @@ function StatisticsCard({footerColor,footerValue,title,footerLabel,value,Icon}) 
                         {Icon}
                     </Box>
                     <Box sx={{display: 'flex', flexDirection:'column',justifyContent:'space-between',alignItems:'end'}}>
-                        <Typography sx={{}}>
+                        <Typography>
                             {title}
                         </Typography>
                         <Typography level='h3' sx={{fontSize:'24px',fontWeight:'bold'}}>

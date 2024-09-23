@@ -4,11 +4,10 @@ import {useQuery} from "@tanstack/react-query";
 
 const verificationApi = async () => {
     try {
-        const response = await instanceAxios.get("/verification");
-        return response.data; // مطمئن شو که این داده‌ها وجود دارند
+        const response = await instanceAxios.get("/verify");
+        return response.data;
     } catch (error) {
-        console.error("Error fetching verification data:", error);
-        throw new Error("Failed to fetch verification data"); // خطا را پرتاب کن
+        console.error("Error fetching verification data:", error)
     }
 };
 

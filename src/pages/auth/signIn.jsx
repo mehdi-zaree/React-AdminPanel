@@ -1,7 +1,7 @@
 import {
     Box,
     Button,
-    FormControl,
+    FormControl, FormHelperText,
     IconButton,
     InputAdornment,
     InputLabel,
@@ -13,6 +13,14 @@ import useLogin from "../../api/auth/login.api.js";
 import {VisibilityOffRounded, VisibilityRounded} from "@mui/icons-material";
 import {useState} from "react";
 import {NavLink} from "react-router-dom";
+import {z} from "zod";
+import { zodResolver } from '@hookform/resolvers/zod'
+
+const signInSchema = z.object({
+    email : z.string().email('Invalid email address'),
+    password: z.string().min(6, 'Password must be at least 6 characters'),
+})
+
 function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -24,7 +32,9 @@ function SignIn() {
     };
 
     const {status  , mutate} = useLogin()
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit,formState :{errors}} = useForm({
+        resolver : zodResolver(signInSchema)
+    });
 
     const loginHandler = values => {
         mutate(values)
@@ -33,8 +43,7 @@ function SignIn() {
 
     return (
         <Box sx={{width:'100%',height:'100vh',display:'flex',padding:'32px',gap:4}}>
-
-            <Box sx={{width:'60%',height:'100%',display:'flex',flexDirection:'column',gap:4,justifyContent:'center'}}>
+            <Box sx={{width:{xs:'100%',md:'60%'},height:'100%',display:'flex',flexDirection:'column',gap:4,justifyContent:'center'}}>
                 <form style={{display:'flex',flexDirection:'column',gap:'32px',alignItems:'center',justifyContent:'center'}} onSubmit={handleSubmit(loginHandler)}>
                     <Typography variant='h4' sx={{fontWeight:'bold'}}>
                         Sign In
@@ -42,17 +51,17 @@ function SignIn() {
                     <Typography>
                         Enter your email and password to Sign In.
                     </Typography>
-                    <Box sx={{display:'flex',flexDirection:'column',gap:1,justifyContent:'center',paddingX:'8px'}}>
-                        <FormControl sx={{ m: 1, width: '50ch' }} size='small'>
+                    <Box sx={{display:'flex',flexDirection:'column',gap:1,justifyContent:'center',paddingX:'8px',alignItems:'center'}}>
+                        <FormControl sx={{ m: 1, width: '100%' }} size='small' error={!!errors.email}>
                             <InputLabel htmlFor="component-outlined" >Email</InputLabel>
                             <OutlinedInput
                                 id="component-outlined"
                                 label="Email"
                                 {...register('email')}
-
                             />
+                            {errors?.email && (<FormHelperText error >{errors.email.message}</FormHelperText>)}
                         </FormControl>
-                        <FormControl sx={{ m: 1, width: '50ch' }} variant="outlined" size='small'>
+                        <FormControl error={!!errors.password} sx={{ m: 1, width: '100%' }} variant="outlined" size='small'>
                             <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password"
@@ -73,14 +82,15 @@ function SignIn() {
                                 label="Password"
                                 {...register('password')}
                             />
+                            {errors?.password && (<FormHelperText error >{errors.password.message}</FormHelperText>)}
                         </FormControl>
-                        <NavLink to='/#' style={{textDecoration:'none',color:'inherit'}}>
-                            <Typography variant='subtitle1' sx={{width:'90%',paddingX:'10px'}}>
+                        <NavLink to='#' style={{textDecoration:'none',color:'inherit'}}>
+                            <Typography variant='subtitle1' sx={{width:'100%',paddingX:'10px'}}>
                                 Forgot password ?
                             </Typography>
                         </NavLink>
                     </Box>
-                    <Button type={"submit"} variant='contained' sx={{width:'50ch'}}>
+                    <Button type={"submit"} variant='contained' sx={{width:'200px'}}>
                         Sign in
                     </Button>
                     <Box sx={{display:'flex',gap:1}}>
@@ -91,7 +101,7 @@ function SignIn() {
                     </Box>
                 </form>
             </Box>
-            <Box sx={{width:"40%",height:'100%',background:'url(/img/pattern.png) no-repeat center',backgroundSize:'cover',borderRadius:"24px"}}>
+            <Box sx={{width:"40%",height:'100%',background:'url(/img/pattern.png) no-repeat center',backgroundSize:'cover',borderRadius:"24px",display:{xs:'none',md:'flex'}}}>
             </Box>
         </Box>
     )

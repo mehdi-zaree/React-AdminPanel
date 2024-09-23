@@ -4,32 +4,24 @@ import {Avatar, Box, Button, IconButton, TextField, Typography} from "@mui/mater
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import {
-    AccessTimeFilled,
-    AccountCircle,
-    AccountCircleOutlined,
     DarkModeOutlined,
     LightModeOutlined,
     MenuRounded,
-    NotificationsOutlined
 } from "@mui/icons-material";
 import {Context} from "../../App.jsx";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+
 import {useLocation} from "react-router-dom";
-import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+
 import ProfileButton from "../../components/nav/profileButton.jsx";
 import NotificationButton from "../../components/nav/NotificationButton.jsx";
 
 
 function Index() {
 
-    function handleClickCrumb(event) {
-        event.preventDefault();
-    }
+
     const location = useLocation();
     const pathName = location.pathname;
-    const currentPath = location.pathname.replace(/\//g, " ");
-
+    const currentPath = location.pathname.replace(/\//g, "");
     const [theme,isOpen,setIsOpen,toggleDarkTheme] = useContext(Context)
     return (
        <Box>
@@ -43,7 +35,6 @@ function Index() {
                    display: 'flex',
                    flexDirection: 'column',
                    justifyContent: 'center',
-
                }}>
                    <Breadcrumbs aria-label="breadcrumb">
                        <Link underline="hover" color="inherit" href="/">
@@ -57,7 +48,6 @@ function Index() {
                        >
                            {currentPath}
                        </Link>
-
                    </Breadcrumbs>
                    <Typography
                        level='h6'

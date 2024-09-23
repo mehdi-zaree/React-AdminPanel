@@ -1,12 +1,12 @@
 import './index.css'
-import  {createContext, useState} from "react";
+import {createContext, useEffect, useState} from "react";
 import {ThemeProvider, createTheme} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Home from "./pages/dashboard/Home.jsx";
 import ProfilePage from "./pages/dashboard/Profile.jsx";
 import NotificationsPage from "./pages/dashboard/Notifications.jsx";
 import TablesPage from "./pages/dashboard/Tables.jsx";
-import {Box} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Notfound from "./pages/Notfound.jsx";
 import RootLayout from "./layout/RootLayout.jsx";
@@ -80,9 +80,9 @@ function App() {
                 }
             ]
         },
-
-
     ])
+    const [count,setCount] = useState(0)
+
     return (
         <>
             <ThemeProvider theme={darkTheme}>
@@ -100,7 +100,7 @@ function App() {
 
                             }}>
                                 <Box>
-                                        <RouterProvider router={router}/>
+                                    <RouterProvider router={router}/>
                                 </Box>
                             </Box>
                         </Box>

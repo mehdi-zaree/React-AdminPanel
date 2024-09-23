@@ -55,7 +55,7 @@ function Profile() {
                             </Typography>
                             {platformSettingsData.map((list,index)=>{
                                 return(
-                                    <>
+
                                         <List key={index}>
                                             <Typography sx={{textTransform:'uppercase',fontSize:'12px',fontWeight:'bold',color:'#7499ba'}}>
                                                 {list.title}
@@ -70,8 +70,7 @@ function Profile() {
                                                     </ListItem>
                                                 )
                                             })}
-
-                                        </List></>
+                                        </List>
                                 )
                             })}
                         </Box>
@@ -153,7 +152,7 @@ function Profile() {
                         <Grid container spacing={6} columns={{xs:4,lg:8,xl:12}} sx={{width:'100%'}}>
                             {ProjectsData.map((project,index)=>{
                                 return(
-                                    <Grid Item  key={index} size={{xs:12,lg:4,xl:3}}>
+                                    <Grid   key={index} size={{xs:12,lg:4,xl:3}}>
                                         <ProfileProjects project={project}/>
                                     </Grid>
                                 )

@@ -19,11 +19,9 @@ function Index({project}) {
                 </Button>
                 <AvatarGroup>
                     {project?.members?.map((member,index)=>(
-                        <Fragment key={index}>
-                            <Tooltip title={member.name} placement='top'>
+                            <Tooltip  key={index}title={member.name} placement='top'>
                                 <Avatar src={member.img} sx={{width:'24px',height:'24px'}}/>
                             </Tooltip>
-                        </Fragment>
                     ))}
                 </AvatarGroup>
             </Box>
