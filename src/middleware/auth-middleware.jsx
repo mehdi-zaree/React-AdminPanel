@@ -1,22 +1,27 @@
 import useVerification from "../api/auth/verification.api.js";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import Loading from "../components/loading/loading.jsx";
 
-function AuthMiddleware({children}) {
-    const {status} = useVerification()
-    const navigate = useNavigate();
-    if (status === 'error') {
-        return navigate('/auth/signin');
-    }
+function AuthMiddleware({ children }) {
+  const { status } = useVerification();
+  const navigate = useNavigate();
 
-    if (status === "pending") {
-        return <Loading/>
+  useEffect(() => {
+    if (status === "error") {
+      navigate("/auth/signin");
     }
+  }, [status, navigate]);
 
-    if (status === "success") {
-        return children
-    }
+  if (status === "pending") {
+    return <Loading />;
+  }
 
+  if (status === "success") {
+    return children;
+  }
+
+  return null;
 }
 
 export default AuthMiddleware;
