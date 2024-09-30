@@ -11,7 +11,9 @@
 </br>
 
 
-![Screenshot from 2024-09-30 12-53-19](https://github.com/user-attachments/assets/c34cf42c-732b-4b00-bc70-eff04944e9e2)
+![Screenshot from 2024-09-30 21-09-27](https://github.com/user-attachments/assets/4882c7af-5e45-4bad-9709-907c31239c85)
+![Screenshot from 2024-09-30 21-08-48](https://github.com/user-attachments/assets/34d9ce70-ede7-4217-b9db-96c12b7642af)
+
 
 ### Built With
 
