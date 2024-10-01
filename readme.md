@@ -4,7 +4,7 @@
 </br>
 
 <div align="center">
-  <a href="https://react-admin-panel-ashen-six.vercel.app/" text-align='center'>Live Preview</a> . 
+  <a href="https://trusting-chaum-5-2sbp67n.liara.run/home" text-align='center'>Live Preview</a> . 
   <a href="https://github.com/mehdi-zaree/React-AdminPanel/issues" text-align='center'>Report Issues</a> . 
   <a href="https://github.com/mehdi-zaree/React-AdminPanel/issues" text-align='center'>Request features</a> 
 </div>
