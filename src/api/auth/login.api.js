@@ -29,7 +29,7 @@ const useLogin = () => {
         onSuccess: (data) => {
             if (data) {
                 localStorage.setItem('token', data.token)
-                window.location.href = '/home'
+                location.href = '/home'
             }
         }
     })

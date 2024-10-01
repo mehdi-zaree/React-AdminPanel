@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import Loading from "../components/loading/loading.jsx";
 
+// eslint-disable-next-line react/prop-types
 function AuthMiddleware({ children }) {
   const { status } = useVerification();
   const navigate = useNavigate();

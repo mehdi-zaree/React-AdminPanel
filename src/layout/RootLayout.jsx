@@ -14,6 +14,7 @@ function RootLayout({darkTheme}) {
                 justifyItems:'space-between',
                 paddingX:{xs:'10px',sm:'12px',lg:'12px'},
                 marginLeft: {lg:'17%'},
+
             }}>
                 <TopBar/>
                 <Box>

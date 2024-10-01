@@ -15,7 +15,7 @@ const registerApi = async (data) => {
     if (response.status === 200 || response.status === 201) {
       localStorage.setItem("token", response.data?.token);
       toast.success("success");
-      window.location.href = "/home";
+      location.href = "/home";
     }
     return response.data;
   } catch (error) {
