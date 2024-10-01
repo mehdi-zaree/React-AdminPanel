@@ -28,6 +28,7 @@ function ProfileButton() {
   };
 
   const userData = queryClient.getQueryData(["verification"]);
+  const userEmail = userData?.user?.email || "";
 
   return (
     <React.Fragment>
@@ -41,7 +42,7 @@ function ProfileButton() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Avatar sx={{ width: 32, height: 32 }}>{userEmail.charAt(0).toUpperCase()}</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -83,10 +84,9 @@ function ProfileButton() {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar />
+          <Avatar>{userEmail.charAt(0).toUpperCase()}</Avatar>
           {userData?.user?.email}
         </MenuItem>
-
         <Divider />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>

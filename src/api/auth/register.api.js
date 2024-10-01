@@ -8,7 +8,7 @@ const notify = (message) => {
 const registerApi = async (data) => {
   try {
     const response = await axios.post(
-      "http://localhost:3000/api/register",
+      "https://inaweb.ir/api/register",
       data
     );
 

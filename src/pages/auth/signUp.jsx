@@ -58,7 +58,7 @@ function SignUp() {
                         Join our community
                     </Typography>
                     <Box sx={{display:'flex',flexDirection:'column',gap:1,justifyContent:'center',paddingX:'10px',alignItems:'center'}}>
-                        <FormControl sx={{ m: 1, width: '100%' }} size='small'>
+                        <FormControl sx={{ m: 1, width: '100%' }} size='small' error={!!errors.email}>
                             <InputLabel htmlFor="component-outlined" >Email</InputLabel>
                             <OutlinedInput
                                 id="component-outlined"
@@ -68,7 +68,7 @@ function SignUp() {
                             {errors.email && (<FormHelperText error>{errors.email.message}</FormHelperText>)}
 
                         </FormControl>
-                        <FormControl sx={{ m: 1, width: '100%' }} variant="outlined" size='small'>
+                        <FormControl sx={{ m: 1, width: '100%' }} variant="outlined" size='small' error={!!errors.password}>
                             <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password"
@@ -91,7 +91,7 @@ function SignUp() {
                             />
                             {errors.password && (<FormHelperText error>{errors.password.message}</FormHelperText>)}
                         </FormControl>
-                        <FormControl sx={{ m: 1, width: '100%' }} variant="outlined" size='small'>
+                        <FormControl sx={{ m: 1, width: '100%' }} variant="outlined" size='small' error={!!errors.confirmPassword}>
                             <InputLabel sx={{width:'150px',bgcolor:'white',textAlign:'center'}} htmlFor="outlined-adornment-password">Confirm Password</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-ConfirmPassword"

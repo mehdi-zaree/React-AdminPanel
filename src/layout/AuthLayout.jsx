@@ -8,7 +8,7 @@ function AuthLayout({darkTheme}) {
     return (
         <>
             <Box sx={{bgcolor: darkTheme.palette.mode ==='dark'? 'primary.bgDark':'white'}}>
-                <ToastContainer theme='dark' position='bottom-left'/>
+                <ToastContainer theme='dark' position='bottom-center'/>
                 <Outlet/>
             </Box>
         </>

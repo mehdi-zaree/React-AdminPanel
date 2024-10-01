@@ -1,13 +1,14 @@
 import {
-  Box,
-  Button,
-  FormControl,
-  FormHelperText,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  Typography,
+    Alert,
+    Box,
+    Button,
+    FormControl,
+    FormHelperText,
+    IconButton,
+    InputAdornment,
+    InputLabel,
+    OutlinedInput,
+    Typography,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import useLogin from "../../api/auth/login.api.js";
@@ -92,6 +93,11 @@ function SignIn() {
               alignItems: "center",
             }}
           >
+              <Alert severity="info">
+                  <Typography>Email :demo@gmail.com </Typography>
+                  <Typography>Pass word : 123456 </Typography>
+                  <Typography sx={{textTransform:'capitalize', fontWeight:"bold"}}> you can also register from the link below</Typography>
+              </Alert>
             <FormControl
               sx={{ m: 1, width: "100%" }}
               size="small"
@@ -101,6 +107,8 @@ function SignIn() {
               <OutlinedInput
                 id="component-outlined"
                 label="Email"
+                defaultValue={'demo@gmail.com'}
+                variant={'outlined'}
                 {...register("email")}
               />
               {errors?.email && (
@@ -119,6 +127,8 @@ function SignIn() {
               <OutlinedInput
                 id="outlined-adornment-password"
                 type={showPassword ? "text" : "password"}
+                defaultValue={'123456'}
+                variant={'outlined'}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
